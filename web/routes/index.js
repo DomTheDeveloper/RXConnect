@@ -104,7 +104,7 @@ router.get('/api/patient', function(req, res, next) {
 		res.send(p);
 	});
 });
-router.get('/api/prescription', function(req, res, next) {
+router.get('/api/presc', function(req, res, next) {
 	Prescription.find(function (err, p) {
 		res.send(p);
 	});
