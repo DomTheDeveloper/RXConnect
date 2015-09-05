@@ -19,7 +19,8 @@ body {
 
 #navbar img {
 	margin-top: 7px;
-	width: 170px;
+	padding: 7px;
+	width: 250px;
 }
 
 #navbar sub {
