@@ -46,5 +46,22 @@ section p:not(:last-of-type) {
 
 textarea {
 	height: 20rem;
-	width: 45%;
+	width: 44%;
+}
+
+textarea:first-of-type {
+	margin: 0% 1% 0% 0%;
+}
+
+textarea:nth-of-type(2) {
+	margin: 0% 0% 0% 1%;
+}
+
+textarea#warnings {
+	width: 90%;
+}
+
+input[type="submit"] {
+	font-size: 2rem;
+	font-weight: lighter;
 }

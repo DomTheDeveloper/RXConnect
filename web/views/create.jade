@@ -8,8 +8,15 @@ block content
         p <strong>Patient</strong> #{patient.name}
         
         form(action='create' method='POST')
-            textarea#input(placeholder='Input' name='input')
-            textarea#output(placeholder='Output' name='output')
+            input#medication(type='text' placeholder='Medication' name='medication')
+            br
+            textarea#input(placeholder='Input' name='raw')
+            textarea#output(placeholder='Output' name='directions')
+            br
+            textarea#warnings(placeholder='Warnings' name='warnings')
+            br
+            input#refills(type='number' placeholder='Refills' name='refills')
+            input(type='submit')
 
         script(type='text/javascript').
             $('#input').bind('input propertychange', function () {
@@ -17,24 +24,22 @@ block content
                 var rendered = raw;
 
                 var replacements = {
-                    "AM": "MORNING",
-                    "PM": "AFTERNOON",
-                    "HS": "AT BEDTIME",
-                    "TAB": "TABLET",
-                    "QOD": "EVERY OTHER DAY",
-                    "QD": "DAILY",
-                    "BID": "TWICE DAILY",
-                    "3ID": "THREE TIMES DAILY",
-                    "4ID": "FOUR TIMES DAILY",
-                    "5ID": "FIVE TIMES DAILY",
-                    "SL": "UNDER THE TONGUE",
-                    "PO": "BY MOUTH",
-                    "PR": "RECTALLY",
-                    "TBSP": "TABLESPOON",
-                    "TSP": "TEAPSPOON",
-                    "UD": "AS DIRECTED",
-
-
+                    'AM': 'MORNING',
+                    'PM': 'AFTERNOON',
+                    'HS': 'AT BEDTIME',
+                    'TAB': 'TABLET',
+                    'QOD': 'EVERY OTHER DAY',
+                    'QD': 'DAILY',
+                    'BID': 'TWICE DAILY',
+                    '3ID': 'THREE TIMES DAILY',
+                    '4ID': 'FOUR TIMES DAILY',
+                    '5ID': 'FIVE TIMES DAILY',
+                    'SL': 'UNDER THE TONGUE',
+                    'PO': 'BY MOUTH',
+                    'PR': 'RECTALLY',
+                    'TBSP': 'TABLESPOON',
+                    'TSP': 'TEAPSPOON',
+                    'UD': 'AS DIRECTED',
                 };
 
                 var regex = new RegExp(Object.keys(replacements).join('|'), 'gi');
