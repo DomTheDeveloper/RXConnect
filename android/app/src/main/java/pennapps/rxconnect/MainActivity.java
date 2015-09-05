@@ -11,6 +11,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.action_background));
+        getSupportActionBar().setElevation(0);
+        getSupportActionBar().hide();
     }
 
 
