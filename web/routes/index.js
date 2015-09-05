@@ -94,8 +94,25 @@ router.post('/api/doctor/:id', function(req, res, next) {
 // create doctor instance (testing)
 router.post('/api/doctor', function(req, res, next) {
   Doctor.create(req.body, function(err, p) {
-	res.send(p);
+		res.send(p);
   });
+});
+
+// listing views
+router.get('/api/patient', function(req, res, next) {
+	Patient.find(function (err, p) {
+		res.send(p);
+	});
+});
+router.get('/api/prescription', function(req, res, next) {
+	Prescription.find(function (err, p) {
+		res.send(p);
+	});
+});
+router.get('/api/doctor', function(req, res, next) {
+	Doctor.find(function (err, p) {
+		res.send(p);
+	});
 });
 
 module.exports = router;
