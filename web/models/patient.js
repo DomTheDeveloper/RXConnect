@@ -15,6 +15,6 @@ var patientSchema = mongoose.Schema({
 	// prescriptions: [Prescriptions]
 });
 
-var Patient = mongoose.model('Patient', patientSchema);
+module.exports = mongoose.model('Patient', patientSchema);
 
 
