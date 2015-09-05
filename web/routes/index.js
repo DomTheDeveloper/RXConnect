@@ -115,4 +115,15 @@ router.get('/api/doctor', function(req, res, next) {
 	});
 });
 
+// WEBPAGES
+
+router.get('/doctor/:docid', function(req, res, next) {
+	Doctor.findById(req.params.docid, function(err, p) {
+		res.render('doctor', { doctor: p, title: 'Doctor' });
+	});
+});
+
+router.get('/doctor/:')
+
+
 module.exports = router;
