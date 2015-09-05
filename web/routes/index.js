@@ -7,38 +7,38 @@ var Prescription = require('../models/prescription.js').model;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'MedSync' });
 });
 
 // get either json data or template for prescription
 router.get('/api/presc/:id.:format?', function(req, res, next) {
-	if (req.params.format == 'json') {
-	  Prescription.findById(req.params.id, function(err, p) {
-	  	res.send(p);
-	  });
-	}
-	else {
-	  res.render('index', { title: 'Express' });
-	}
+	Prescription.findById(req.params.id, function(err, p) {
+		if (req.params.format == 'json') {
+			res.send(p);
+		}
+		else {
+			res.render('prescription', { presc: p, title: 'Prescription' });
+		}
+	});
 });
 
 // create standalone prescription instance (unnecessary)
 router.post('/api/presc', function(req, res, next) {
   Prescription.create(req.body, function(err, p) {
-  	res.send(p);
+	res.send(p);
   });
 });
 
 // get either json data or template for patient
 router.get('/api/patient/:id.:format?', function(req, res, next) {
-	if (req.params.format == 'json') {
-	  Patient.findById(req.params.id, function(err, p) {
-	  	res.send(p);
-	  });
-	}
-	else {
-	  res.render('index', { title: 'Express' });
-	}
+	Patient.findById(req.params.id, function(err, p) {
+		if (req.params.format == 'json') {
+			res.send(p);
+		}
+		else {
+			res.render('patient', { patient: p, title: 'Patient' });
+		}
+	});
 });
 
 // post patient api data
@@ -51,7 +51,7 @@ router.post('/api/patient', function(req, res, next) {
 	json["address"] = json.address[0].line;
 	json["phone"] = json.telecom[0].value;
   Patient.create(json, function(err, p) {
-  	res.send(p);
+	res.send(p);
   });
 });
 
@@ -70,14 +70,14 @@ router.post('/api/patient/:id', function(req, res, next) {
 
 // get either json data or template for doctor/pharmacist
 router.get('/api/doctor/:id.:format?', function(req, res, next) {
-	if (req.params.format == 'json') {
-	  Doctor.findById(req.params.id, function(err, p) {
-	  	res.send(p);
-	  });
-  }
-	else {
-	  res.render('index', { title: 'Express' });
-	}
+	Doctor.findById(req.params.id, function(err, p) {
+		if (req.params.format == 'json') {
+			res.send(p);
+		}
+		else {
+			res.render('doctor', { doctor: p, title: 'Doctor' });
+		}
+	});
 });
 
 // post multiple (existing) patients to a doctor
@@ -91,10 +91,10 @@ router.post('/api/doctor/:id', function(req, res, next) {
 	});
 });
 
-// create doctor instance
+// create doctor instance (testing)
 router.post('/api/doctor', function(req, res, next) {
   Doctor.create(req.body, function(err, p) {
-  	res.send(p);
+	res.send(p);
   });
 });
 

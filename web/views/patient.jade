@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	h1= title
+
+	h2= patient.name
+	p= patient.gender
+	p= patient.address
+	p= patient.city
+	p= patient.state
+	p= patient.zip
+	p= patient.phone
+	p= patient.birthDate
+
+	h2 prescriptions
+	each presc in patient.prescriptions
+		p= presc.medication
+		p= presc.directions
+		p= presc.refills
+		p= presc.date_prescribed
