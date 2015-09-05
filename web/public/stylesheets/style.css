@@ -88,6 +88,10 @@ a {
 	color: #F44336;
 }
 
+h1 a {
+	color: white;
+}
+
 a:hover {
 	color: #FF4336;
 }
