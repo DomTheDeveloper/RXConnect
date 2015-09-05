@@ -58,7 +58,7 @@ router.post('/api/patient', function(req, res, next) {
 // post one prescription to a patient
 router.post('/api/patient/:id', function(req, res, next) {
 	Patient.findById(req.params.id, function(err, p) {
-		var presc = req.body.prescriptions[0];
+		var presc = req.body.prescription;
 		Prescription.create(presc, function(err, created_presc) {
 			p.prescriptions.push(created_presc);
 			p.save(function(err) {
