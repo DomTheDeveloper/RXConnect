@@ -84,6 +84,10 @@ section.noborder p {
 	margin-bottom: 25px;
 }
 
-#more {
+a {
 	color: #F44336;
+}
+
+a:hover {
+	color: #FF4336;
 }
