@@ -30,7 +30,19 @@ router.get('/api/patient/:id', function(req, res, next) {
 
 router.post('/api/patient', function(req, res, next) {
 	console.log(req.body);
-  Patient.create(req.body, function(err, p) {
+
+	json = req.body;
+
+	json.name = json.name[0].given[0] + " " + json.name[0].family[0];
+
+	json["city"] = json.address[0].city;
+	json["state"] = json.address[0].state;
+	json["zip"] = json.address[0].postalCode;
+	json["address"] = json.address[0].line;
+	json["phone"] = json.telecom[0].value;
+
+
+  Patient.create(json, function(err, p) {
   	console.log(p);
   });
 });
