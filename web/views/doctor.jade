@@ -5,6 +5,7 @@ block content
 
     section#doctor
         h2#name= doctor.name
+        p#title <strong>Title</strong> #{doctor.title}
         p#practice <strong>Practice</strong> #{doctor.practice}
         p#address <strong>Address</strong> #{doctor.address}
         p#zip <strong>Zip Code</strong> #{doctor.zip}
@@ -15,5 +16,5 @@ block content
         each pat in doctor.patients
             //- p= pat
             p
-                a(href='/api/patient/#{pat}', target='_blank') #{pat}
+                a(href='/api/patient/#{pat.id}', target='_blank') #{pat.name}
 

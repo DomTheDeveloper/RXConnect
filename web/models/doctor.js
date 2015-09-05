@@ -5,13 +5,14 @@ var patientSchema = require('../models/patient.js').schema;
 
 var doctorSchema = mongoose.Schema({
 	name: String,
-	practice: String,
+	practice: String, // ex. hospital
+	title: String, // doctor's field
 	address: String,
 	city: String,
 	state: String,
 	zip: Number,
 	phone: String,
-	patients: [String]
+	patients: [{name: String, id: String}]
 });
 
 exports.model = mongoose.model('Doctor', doctorSchema);
