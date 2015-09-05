@@ -5,6 +5,8 @@ var Patient = require('../models/patient.js').model;
 var Doctor = require('../models/doctor.js').model;
 var Prescription = require('../models/prescription.js').model;
 
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'MedSync' });
@@ -123,7 +125,17 @@ router.get('/doctor/:docid', function(req, res, next) {
 	});
 });
 
-router.get('/doctor/:')
+router.get('/patient/:patid', function(req, res, next) {
+	Patient.findById(req.params.patid, function(err, p) {
+		res.render('patient', { patient: p, title: 'Patient'})
+	});
+});
+
+router.get('/patient/:patid/create', function(req, res, next) {
+	Patient.findById(req.params.patid, function(err, p) {
+		res.render('create', { patient: p, title: 'Create Prescription'})
+	});
+});
 
 
 module.exports = router;

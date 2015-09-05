@@ -1,0 +1,47 @@
+extends layout
+
+block scripts
+
+block content
+    section
+        h2 Create Prescription
+        p <strong>Patient</strong> #{patient.name}
+        
+        form(action='create' method='POST')
+            textarea#input(placeholder='Input' name='input')
+            textarea#output(placeholder='Output' name='output')
+
+        script(type='text/javascript').
+            $('#input').bind('input propertychange', function () {
+                var raw = $('#input').val().toUpperCase();
+                var rendered = raw;
+
+                var replacements = {
+                    "AM": "MORNING",
+                    "PM": "AFTERNOON",
+                    "HS": "AT BEDTIME",
+                    "TAB": "TABLET",
+                    "QOD": "EVERY OTHER DAY",
+                    "QD": "DAILY",
+                    "BID": "TWICE DAILY",
+                    "3ID": "THREE TIMES DAILY",
+                    "4ID": "FOUR TIMES DAILY",
+                    "5ID": "FIVE TIMES DAILY",
+                    "SL": "UNDER THE TONGUE",
+                    "PO": "BY MOUTH",
+                    "PR": "RECTALLY",
+                    "TBSP": "TABLESPOON",
+                    "TSP": "TEAPSPOON",
+                    "UD": "AS DIRECTED",
+
+
+                };
+
+                var regex = new RegExp(Object.keys(replacements).join('|'), 'gi');
+
+                rendered = raw.replace(regex, function(matched) {
+                    return replacements[matched];
+                });
+
+                $('#output').html(rendered);
+            });

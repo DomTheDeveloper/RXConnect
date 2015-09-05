@@ -1,18 +1,21 @@
 extends layout
 
+
+
 block content
-	h1= title
+    
+    section
+        h2 #{patient.name}
+        p <strong>Gender</strong> #{titleCase(patient.gender)}
+        p <strong>Birth Date</strong> #{patient.birthDate}
+        p <strong>Address</strong> #{patient.address}
+        p <strong>City</strong> #{patient.city}
+        p <strong>State</strong> #{patient.state}
+        p <strong>Zip Code</strong> #{patient.zip}
+        p <strong>Phone Number</strong> #{patient.phone}
 
-	h2= patient.name
-	p= patient.gender
-	p= patient.address
-	p= patient.city
-	p= patient.state
-	p= patient.zip
-	p= patient.phone
-	p= patient.birthDate
-
-	h2 Prescriptions
-	each presc in patient.prescriptions
-		p
-			a(href='/api/presc/#{presc._id}', target='_blank') #{presc.medication}
+    section
+        h2 Prescriptions
+        each presc in patient.prescriptions
+            p
+                a(href='/api/presc/#{presc._id}', target='_blank') #{presc.medication}

@@ -43,3 +43,8 @@ section p:not(:last-of-type) {
 	margin: 0 5rem;
 	border-bottom: 1px #AAAAAA solid;
 }
+
+textarea {
+	height: 20rem;
+	width: 45%;
+}
