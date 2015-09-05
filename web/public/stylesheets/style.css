@@ -69,10 +69,14 @@ input[type="submit"] {
 	font-weight: lighter;
 }
 
-section.noborder p{
+section.noborder p {
 	border-bottom: 0px white none;
 }
 
-#map{
-	margin-bottom:25px;
+#map {
+	margin-bottom: 25px;
+}
+
+#more {
+	color: #F44336;
 }
