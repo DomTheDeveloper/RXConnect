@@ -10,6 +10,7 @@ import android.view.ViewGroup;
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment {
+    View login;
 
     public MainActivityFragment() {
     }
