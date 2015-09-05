@@ -3,6 +3,10 @@
 *, *:before, *:after {
 	box-sizing: border-box;
 	margin: auto;
+}
+
+html {
+	margin: auto;
 	font-family: "Roboto";
 }
 
@@ -37,6 +41,10 @@ section {
 	box-shadow: 8px 8px 0 0 #CCC;
 }
 
+section:last-of-type {
+	margin-bottom: 3.2rem;
+}
+
 section h2, section h3 {
 	background-color: #F44336;
 	color: white;
@@ -44,7 +52,6 @@ section h2, section h3 {
 
 section p:not(:last-of-type) {
 	margin: 0 5rem;
-	border-bottom: 1px #AAAAAA solid;
 }
 
 textarea {
@@ -77,10 +84,9 @@ section.noborder p {
 	margin-bottom: 25px;
 }
 
-#more {
+a {
 	color: #F44336;
 }
-
 #landing-container {
 	background-color: #F44336;
 	width: 100vw;
@@ -162,4 +168,8 @@ section.noborder p {
 	position: relative;
   top: 50%;
   transform: translateY(-50%);
+
+
+a:hover {
+	color: #FF2124;
 }

@@ -12,9 +12,10 @@ block content
             p#phone.noborder #{patient.phone}
 
     section
-        h2 Prescriptions
+        h2 Prescriptions 
         each presc in patient.prescriptions
             p
               a(href='/api/presc/#{presc._id}', target='_blank') #{presc.medication}
         p
-          a(href='/patient/#{patient._id}/create', target='_blank')#more <i class="fa fa-plus"></i>
+            <a href='/patient/#{patient._id}/create' target='_blank' id="more"><i class="fa fa-plus-circle"></i></a>
+          
