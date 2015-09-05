@@ -11,7 +11,7 @@ var doctorSchema = mongoose.Schema({
 	state: String,
 	zip: Number,
 	phone: String,
-	patients: [patientSchema]
+	patients: [String]
 });
 
 exports.model = mongoose.model('Doctor', doctorSchema);
