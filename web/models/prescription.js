@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var prescriptionSchema = new mongoose.Schema({
 	medication: String,
 	directions: String,
+	doctor_notes: String,
 	date_prescribed: { type: Date, default: Date.now },
 	refills: Number
 });
