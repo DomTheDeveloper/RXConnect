@@ -12,6 +12,9 @@ html
     - }
 
   body
-    #navbar Medspace<sub>#{title}</sub>
+    //- #navbar Medspace<sub>#{title}</sub>
+    #navbar
+        img(src="/img/logo.png", width=100)
+    
     h1= title
     block content
