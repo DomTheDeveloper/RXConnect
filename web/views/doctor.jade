@@ -3,18 +3,18 @@ extends layout
 block content
     
 
-    section#doctor
-        h2#name= doctor.name
-        p#title <strong>Title</strong> #{doctor.title}
-        p#practice <strong>Practice</strong> #{doctor.practice}
-        p#address <strong>Address</strong> #{doctor.address}
-        p#zip <strong>Zip Code</strong> #{doctor.zip}
-        p#phone <strong>Phone Number</strong> #{doctor.phone}
+    section#doctor.noborder
+        h2#name Dr. #{doctor.name}, MD
+        h4 #{doctor.title}
+        div#address
+            p#practice.noborder <strong>#{doctor.practice}</strong>
+            p#address.noborder #{doctor.address}, #{doctor.city} #{doctor.zip}
+            p#phone.noborder #{doctor.phone}
+        img#map(src="https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&markers=39.9012015,-75.1719795")
 
     section#patients
         h3 Patients
         each pat in doctor.patients
-            //- p= pat
             p
-                a(href='/patient/#{pat.idref}', target='_blank') #{pat.name}
+                a(href='/patient/#{pat.idref}') #{pat.name}
 

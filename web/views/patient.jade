@@ -3,16 +3,13 @@ extends layout
 
 
 block content
-    
-    section
-        h2 #{patient.name}
-        p <strong>Gender</strong> #{titleCase(patient.gender)}
-        p <strong>Birth Date</strong> #{patient.birthDate}
-        p <strong>Address</strong> #{patient.address}
-        p <strong>City</strong> #{patient.city}
-        p <strong>State</strong> #{patient.state}
-        p <strong>Zip Code</strong> #{patient.zip}
-        p <strong>Phone Number</strong> #{patient.phone}
+
+    section.noborder
+        h2#name #{patient.name}
+        h4#practice.noborder #{Math.floor((Date.now() - patient.birthDate) / 31536000000)}-year old #{patient.gender} patient
+        div#address
+            p#address.noborder #{patient.address}, #{patient.city} #{patient.zip}
+            p#phone.noborder #{patient.phone}
 
     section
         h2 Prescriptions
