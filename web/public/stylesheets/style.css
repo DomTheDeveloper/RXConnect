@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
 *, *:before, *:after {
 	box-sizing: border-box;
-	
+	margin: auto;
 }
 
 html {
@@ -41,6 +41,10 @@ section {
 	box-shadow: 8px 8px 0 0 #CCC;
 }
 
+section:last-of-type {
+	margin-bottom: 3.2rem;
+}
+
 section h2, section h3 {
 	background-color: #F44336;
 	color: white;
@@ -48,7 +52,6 @@ section h2, section h3 {
 
 section p:not(:last-of-type) {
 	margin: 0 5rem;
-	border-bottom: 1px #AAAAAA solid;
 }
 
 textarea {
