@@ -11,4 +11,6 @@ block content
 
 	h2 patients
 	each pat in doctor.patients
-		p= pat
+		//- p= pat
+		p
+			a(href='/api/patient/#{pat}', target='_blank') #{pat}
