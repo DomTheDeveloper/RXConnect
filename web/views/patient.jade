@@ -15,7 +15,7 @@ block content
         h2 Prescriptions 
         each presc in patient.prescriptions
             p
-              a(href='/api/presc/#{presc._id}', target='_blank') #{presc.medication}
+              a(href='/api/presc/#{presc._id}', data-transition='slide') #{presc.medication}
         p
             <a href='/patient/#{patient._id}/create' target='_blank' id="more"><i class="fa fa-plus-circle"></i></a>
           

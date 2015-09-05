@@ -16,5 +16,5 @@ block content
         h3 Patients
         each pat in doctor.patients
             p
-                a(href='/patient/#{pat.idref}') #{pat.name}
+                a(href='/patient/#{pat.idref}', data-transition='slide') #{pat.name}
 
