@@ -1,10 +1,12 @@
 extends layout
 
 block content
-	h1= title
+	section
+		h2 #{title}
 
-	h2= presc.medication
-	p= presc.directions
-	p= presc.doctor_notes
-	p= presc.refills
-	p= presc.date_prescribed
+	section
+		h2 <strong>Medication</strong> #{presc.medication}
+		p <strong>Directions</strong> #{presc.directions}
+		p <strong>Warnings</strong> #{presc.doctor_notes}
+		p <strong>Refills</strong> #{presc.refills}
+		p <strong>Date Prescribed</strong> #{presc.date_prescribed}

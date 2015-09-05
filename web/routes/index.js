@@ -138,15 +138,13 @@ router.get('/patient/:patid/create', function(req, res, next) {
 });
 
 router.post('/patient/:patid/create', function(req, res, next) {
-	Patient.findById(req.params.id, function(err, p) {
+	Patient.findById(req.params.patid, function(err, p) {
 		var presc = req.body;
 		console.log('break1')
 		Prescription.create(presc, function(err, created_presc) {
 			console.log('break2');
 			p.prescriptions.push(created_presc);
-			console.log('break3');
 			p.save(function(err) {
-				res.send(p);
 				console.log(req.params.patid);
 				res.redirect('/patient/' + req.params.patid)
 			});
