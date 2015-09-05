@@ -1,16 +1,19 @@
 extends layout
 
 block content
-	h1= title
+    
 
-	h2= doctor.name
-	p= doctor.practice
-	p= doctor.address
-	p= doctor.zip
-	p= doctor.phone
+    section#doctor
+        h2#name= doctor.name
+        p#practice <strong>Practice</strong> #{doctor.practice}
+        p#address <strong>Address</strong> #{doctor.address}
+        p#zip <strong>Zip Code</strong> #{doctor.zip}
+        p#phone <strong>Phone Number</strong> #{doctor.phone}
 
-	h2 patients
-	each pat in doctor.patients
-		//- p= pat
-		p
-			a(href='/api/patient/#{pat}', target='_blank') #{pat}
+    section#patients
+        h3 Patients
+        each pat in doctor.patients
+            //- p= pat
+            p
+                a(href='/api/patient/#{pat}', target='_blank') #{pat}
+

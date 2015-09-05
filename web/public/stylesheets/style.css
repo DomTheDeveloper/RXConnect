@@ -1,8 +1,45 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* #F44336 */
+
+*, *:before, *:after {
+	box-sizing: border-box;
+	margin: auto;
+	font-family: "Roboto";
 }
 
-a {
-  color: #00B7FF;
+body {
+	color: black;
+}
+
+#navbar {
+	background-color: #F44336;
+	color: white;
+	text-align: center;
+	font-size: 5rem;
+	font-variant: small-caps;
+	position: fixed;
+	width: 100%;
+}
+
+#navbar sub {
+	font-size: 2rem;
+}
+
+section {
+	text-align: center;
+	margin-top: 5rem;
+	border: 2px #F44336 solid;
+	width: 50%;
+	color: #6f6f6f;
+	font-size: 2rem;
+	box-shadow: 8px 8px 0 0 #CCC;
+}
+
+section h2, section h3 {
+	background-color: #F44336;
+	color: white;
+}
+
+section p:not(:last-of-type) {
+	margin: 0 5rem;
+	border-bottom: 1px #AAAAAA solid;
 }
