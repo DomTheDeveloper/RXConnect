@@ -4,7 +4,7 @@ var router = express.Router();
 var Patient = require('../models/patient.js');
 // var Doctor = require('../models/doctor.js');
 // var Pharmacist = require('../models/pharmacist.js');
-var Prescription = require('../models/prescription.js');
+var Prescription = require('../models/prescription.js').model;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/api/presc/:id', function(req, res, next) {
   Prescription.findById(req.params.id, function(err, p) {
+  	console.log(p);
   	res.send(p);
   });
 });
@@ -52,11 +53,16 @@ router.post('/api/patient/:id', function(req, res, next) {
 	Patient.findById(req.params.id, function(err, p) {
 		var presc = req.body.prescriptions[0];
 		console.log(p.prescriptions);
-		p.prescriptions.push(presc);
-		p.save(function(err) {
-			console.log("test");
-			res.send(p);
-		});
+		// p.prescriptions.push(presc);
+		// p.save(function(err) {
+			// res.send(p);
+		// });
+		Prescription.create(presc, function(err, created_presc) {
+			p.prescriptions.push(created_presc);
+			p.save(function(err) {
+				res.send(p);
+			});
+		})
 	})
 })
 
