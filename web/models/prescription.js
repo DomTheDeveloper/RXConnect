@@ -7,4 +7,5 @@ var prescriptionSchema = new mongoose.Schema({
 	refills: Number
 });
 
-module.exports = mongoose.model('Prescription', prescriptionSchema);
+exports.model = mongoose.model('Prescription', prescriptionSchema);
+exports.schema = prescriptionSchema;

@@ -51,15 +51,12 @@ router.post('/api/patient', function(req, res, next) {
 router.post('/api/patient/:id', function(req, res, next) {
 	Patient.findById(req.params.id, function(err, p) {
 		var presc = req.body.prescriptions[0];
-		Prescription.create(presc, function(err2, created_presc) {
-			p.prescriptions.push(created_presc);
-			p.save();
-			// p.update({ $push: {'p.prescriptions': created_presc} }, function(err, p3) {
-			// 	p.markModified('prescriptions');
-			// 	console.log(p.prescriptions);
-			// 	res.send(p);
-			// });
-	  });
+		console.log(p.prescriptions);
+		p.prescriptions.push(presc);
+		p.save(function(err) {
+			console.log("test");
+			res.send(p);
+		});
 	})
 })
 

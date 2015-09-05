@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
-var Prescription = require('../models/prescription.js');
+var Prescription = require('../models/prescription.js').model;
+var prescriptionSchema = require('../models/prescription.js').schema;
 
 var patientSchema = mongoose.Schema({
 	name: String,
@@ -11,7 +12,7 @@ var patientSchema = mongoose.Schema({
 	state: String,
 	zip: Number,
 	phone: String,
-	prescriptions: [Prescription]
+	prescriptions: [prescriptionSchema]
 });
 
 module.exports = mongoose.model('Patient', patientSchema);
