@@ -1,5 +1,27 @@
-extends layout
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/skeleton.css')
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		//- link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
 
-block content
-  h1= title
-  p Welcome to #{title}
+	body
+		block content
+			#landing-container
+				#center-container
+					img(src="/img/logo_web.png", width=500)
+					a(href="/doctor/55eb2611f30e69093bd8d5f9")
+						.button-fill.grey
+							.button-text Get Started
+							.button-inside
+								.inside-text Get&nbspStarted
+
+	script
+		$(".button-fill").hover(function () {
+		$(this).children(".button-inside").addClass('full');
+		}, function() {
+		$(this).children(".button-inside").removeClass('full');
+		});
