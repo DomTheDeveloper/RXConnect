@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var patientSchema = mongoose.Schema({
 	name: String,
-	birthDate: {type: Date, default: Date.now};
+	birthDate: {type: Date, default: Date.now},
 	gender: String,
 	age: {type: Number, min: 0, max: 120},
 	address: String,
