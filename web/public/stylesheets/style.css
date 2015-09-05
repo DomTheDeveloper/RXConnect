@@ -12,12 +12,14 @@ body {
 
 #navbar {
 	background-color: #F44336;
-	color: white;
 	text-align: center;
-	font-size: 5rem;
-	font-variant: small-caps;
 	position: fixed;
 	width: 100%;
+}
+
+#navbar img {
+	margin: 0;
+	width: 180px;
 }
 
 #navbar sub {
