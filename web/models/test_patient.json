@@ -1,0 +1,90 @@
+{
+  "resourceType": "Patient",
+  "birthDate": "1985-08-01T00:00:00Z",
+  "active": true,
+  "gender": "male",
+  "deceased": {
+    "deceasedBoolean": false
+  },
+  "careProvider": [
+    {
+      "display": "Physician Family Medicine",
+      "reference": "https://open-ic.epic.com/FHIR/api/fhir/DSTU2/Practitioner/T3Mz3KLBDVXXgaRoee3EKAAB"
+    }
+  ],
+  "name": [
+    {
+      "use": "usual",
+      "family": [
+        "Argonaut"
+      ],
+      "given": [
+        "Jason"
+      ]
+    }
+  ],
+  "identifier": [
+    {
+      "use": "usual",
+      "system": "urn:oid:1.2.840.114350.1.13.327.1.7.5.737384.0",
+      "value": "E3826"
+    },
+    {
+      "use": "usual",
+      "system": "urn:oid:1.2.3.4",
+      "value": "203579"
+    }
+  ],
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "1979 Milky Way Dr."
+      ],
+      "city": "Verona",
+      "state": "WI",
+      "postalCode": "53593",
+      "country": "US"
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "608-271-9000",
+      "use": "home"
+    },
+    {
+      "system": "phone",
+      "value": "608-771-9000",
+      "use": "work"
+    },
+    {
+      "system": "email",
+      "value": "open@epic.com"
+    }
+  ],
+  "maritalStatus": {
+    "text": "Married",
+    "coding": [
+      {
+        "system": "urn:oid:2.16.840.1.113883.6.99",
+        "display": "Married"
+      }
+    ]
+  },
+  "communication": [
+    {
+      "preferred": true,
+      "language": {
+        "text": "English",
+        "coding": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.6.99",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      }
+    }
+  ]
+}
