@@ -19,6 +19,7 @@ router.get('/api/presc/:id', function(req, res, next) {
 
 router.post('/api/presc', function(req, res, next) {
   Prescription.create(req.body, function(err, p) {
+  	res.send(p);
   });
 });
 
@@ -43,8 +44,23 @@ router.post('/api/patient', function(req, res, next) {
 
 
   Patient.create(json, function(err, p) {
-  	console.log(p);
+  	res.send(p);
   });
 });
+
+router.post('/api/patient/:id', function(req, res, next) {
+	Patient.findById(req.params.id, function(err, p) {
+		var presc = req.body.prescriptions[0];
+		Prescription.create(presc, function(err2, created_presc) {
+			p.prescriptions.push(created_presc);
+			p.save();
+			// p.update({ $push: {'p.prescriptions': created_presc} }, function(err, p3) {
+			// 	p.markModified('prescriptions');
+			// 	console.log(p.prescriptions);
+			// 	res.send(p);
+			// });
+	  });
+	})
+})
 
 module.exports = router;
