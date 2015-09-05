@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Patient = require('../models/patient.js');
+var Patient = require('../models/patient.js').model;
 // var Doctor = require('../models/doctor.js');
 // var Pharmacist = require('../models/pharmacist.js');
 var Prescription = require('../models/prescription.js').model;
@@ -65,5 +65,32 @@ router.post('/api/patient/:id', function(req, res, next) {
 		})
 	})
 })
+
+router.get('/api/doctor/:id', function(req, res, next) {
+  Doctor.findById(req.params.id, function(err, p) {
+  	console.log(p);
+  	res.send(p);
+  });
+});
+
+router.post('/api/doctor/:id', function(req, res, next) {
+	Doctor.findById(req.params.id, function(err, p) {
+		var presc = req.body.patients[0];
+		console.log(p.patients);
+
+		Patient.create(presc, function(err, created_patient) {
+			p.patients.push(created_patient);
+			p.save(function(err) {
+				res.send(p);
+			});
+		})
+	})
+})
+
+router.post('/api/doctor', function(req, res, next) {
+  Doctor.create(req.body, function(err, p) {
+  	res.send(p);
+  });
+});
 
 module.exports = router;
