@@ -9,7 +9,7 @@ block content
         div#address
             p#practice.noborder <strong>#{doctor.practice}</strong>
             p#address.noborder #{doctor.address}, #{doctor.city} #{doctor.zip}
-            p#phone.noborder #{doctor.phone}
+            p#phone.noborder <a href="tel:#{doctor.phone}">#{doctor.phone}</a>
         img#map(src="https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&markers=39.9012015,-75.1719795")
 
     section#patients

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>Calendar</title>
+
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+	<link rel="stylesheet" href="css/calendar.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	
+	
+</head>
+<body>
+<script src="js/moment.min.js"></script>
+<span id="testDate">2015/09/06</span>
+
+	<div class="container">
+
+		<div class="calendar-container">
+
+			<header>
+				
+				<div class="day">18</div>
+				<div class="month">August</div>
+
+			</header>
+
+			<table class="calendar">
+				
+				<thead>
+
+					<tr>
+
+						<td>Mon</td>
+						<td>Tue</td>
+						<td>Wed</td>
+						<td>Thu</td>
+						<td>Fri</td>
+						<td>Sat</td>
+						<td>Sun</td>
+
+					</tr>
+
+				</thead>
+
+				<tbody id="dates">
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<div class="ring-left"></div>
+			<div class="ring-right"></div>
+
+		</div> <!-- end calendar-container -->
+
+	</div> <!-- end container -->
+	
+	
+	
+	<script>
+		var $_GET = {};
+
+document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+    function decode(s) {
+        return decodeURIComponent(s.split("+").join(" "));
+    }
+
+    $_GET[decode(arguments[1])] = decode(arguments[2]);
+});
+
+var date = $_GET["date"].toString();
+	
+		var m = moment(date); //
+		
+		$(".day").text(m.format('D'));
+		$(".month").text(m.format('MMMM'));
+		
+		/* prev-month, current-day, next-month */
+		
+		var startOfTheMonth = m.startOf('month').day();
+		var today = $(".day").text();
+		
+		if (startOfTheMonth == 0)
+			startOfTheMonth = 7;
+		if (startOfTheMonth == 1)
+			startOfTheMonth = 8;
+		
+		var prev_month_daysInMonth = m.subtract(1, 'month').daysInMonth();
+		var prev_month_startDay = prev_month_daysInMonth - startOfTheMonth + 1 + 1;
+		
+		
+		var currentDayOfMonth = 1;
+		var daysInMonth = m.daysInMonth()+1;
+		var currentDayOfNextMonth = 1;
+		
+		for (var week = 1; week <= 6; week++){
+			var row = $("#dates").children().eq(week-1);
+			
+			for (var day = 1; day <= 7; day++){
+				var col = row.children().eq(day-1);
+				
+				if (prev_month_startDay <= prev_month_daysInMonth){
+					col.text(prev_month_startDay);
+					col.addClass("prev-month");
+					prev_month_startDay++;
+				}
+				else if (currentDayOfMonth <= daysInMonth){
+					col.text(currentDayOfMonth);
+					if (currentDayOfMonth == today)
+						col.addClass("current-day");
+					currentDayOfMonth++;
+				}
+				else{
+					col.text(currentDayOfNextMonth);
+					col.addClass("next-month");
+					currentDayOfNextMonth++;
+				}
+				
+			}
+		}
+		
+	</script>
+	
+</body>
+</html>

@@ -9,7 +9,7 @@ block content
         h4#practice.noborder #{Math.floor((Date.now() - patient.birthDate) / 31536000000)}-year old #{patient.gender} patient
         div#address
             p#address.noborder #{patient.address}, #{patient.city} #{patient.zip}
-            p#phone.noborder #{patient.phone}
+            p#phone.noborder <a href="tel:#{patient.phone}">#{patient.phone}</a>
 
     section
         h2 Prescriptions 

@@ -1,10 +1,20 @@
 extends layout
 
+
+<script src="calendar/moment.min.js"></script>
+<link rel="stylesheet" href="calendar/calendar.css">
+
 block content
-	section
-		h2 #{title}
-		p <strong>Medication</strong> <br> #{presc.medication}
-		p <strong>Directions</strong> <br> #{presc.directions}
-		p <strong>Warnings</strong> <br> #{presc.doctor_notes}
-		p <strong>Refills</strong> <br> #{presc.refills}
-		p <strong>Date Prescribed</strong> <br> #{presc.date_prescribed.toJSON().slice(0,10)}
+    section
+        h2 #{presc.medication}
+        h4 #{presc.refills} refills
+        h4
+
+        p
+        <strong>Directions</strong> <br> #{presc.directions}
+        <br /><br />
+        p
+        <strong>Warnings</strong> <br> #{presc.doctor_notes}<br />
+        p
+        <strong>Date Prescribed</strong> <br> #{presc.date_prescribed.toJSON().slice(0,10)}
+        iframe(src='/calendar/calendar.html?date=#{presc.date_prescribed.toJSON().slice(0,10)}', width="100%", height="370px", frameBorder="0", scrolling="no")
