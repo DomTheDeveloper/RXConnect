@@ -8,7 +8,7 @@ html
 		link(rel='stylesheet', href='/stylesheets/normalize.css')
 		link(rel='stylesheet', href='/stylesheets/skeleton.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
-		//- link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
 
 	body
 		block content
@@ -16,14 +16,7 @@ html
 				#center-container
 					img(src="/img/logo_web.png", width=500)
 					a(href="/doctor/55eb2611f30e69093bd8d5f9", data-transition='fade')
-						.button-fill.grey
+						.button-fill.grey(onmouseover='$(this).children(".button-inside").addClass("full");', onmouseout='$(this).children(".button-inside").removeClass("full");')
 							.button-text Get Started
 							.button-inside
 								.inside-text Get&nbspStarted
-
-	script
-		$(".button-fill").hover(function () {
-		$(this).children(".button-inside").addClass('full');
-		}, function() {
-		$(this).children(".button-inside").removeClass('full');
-		});
