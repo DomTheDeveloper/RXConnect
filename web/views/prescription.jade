@@ -7,4 +7,4 @@ block content
 		p <strong>Directions</strong> <br> #{presc.directions}
 		p <strong>Warnings</strong> <br> #{presc.doctor_notes}
 		p <strong>Refills</strong> <br> #{presc.refills}
-		p <strong>Date Prescribed</strong> <br> #{presc.date_prescribed}
+		p <strong>Date Prescribed</strong> <br> #{presc.date_prescribed.toJSON().slice(0,10)}
