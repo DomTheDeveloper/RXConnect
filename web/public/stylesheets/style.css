@@ -8,10 +8,8 @@
 body {
 	margin: auto;
 	font-family: "Roboto";
-}
-
-body {
 	color: black;
+	background-color:#eee;
 }
 
 #navbar {
@@ -32,6 +30,7 @@ body {
 }
 
 section {
+	background-color:white;
 	text-align: center;
 	margin-top: 5rem;
 	border: 2px #F44336 solid;
@@ -55,7 +54,7 @@ section p:not(:last-of-type) {
 }
 
 textarea {
-	height: 20rem;
+	height: 20rem !important;
 	width: 44%;
 }
 
