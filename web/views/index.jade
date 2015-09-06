@@ -2,9 +2,11 @@ doctype html
 html
 	head
 		title= title
+		<link rel="stylesheet" href="/transitions/transitions.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="/transitions/transitions.js"></script>
 		link(rel='stylesheet', href='/stylesheets/normalize.css')
 		link(rel='stylesheet', href='/stylesheets/skeleton.css')
-		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		//- link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
 
@@ -13,7 +15,7 @@ html
 			#landing-container
 				#center-container
 					img(src="/img/logo_web.png", width=500)
-					a(href="/doctor/55eb2611f30e69093bd8d5f9")
+					a(href="/doctor/55eb2611f30e69093bd8d5f9", data-transition='slideup')
 						.button-fill.grey
 							.button-text Get Started
 							.button-inside
